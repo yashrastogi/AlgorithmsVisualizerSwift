@@ -1,55 +1,104 @@
 import SwiftUI
 
 let SIZE_OF_BOARD = 25
+let UPDATE_DELAY: UInt32 = 100
 
 struct SortingVisualizer: View {
-    @State var matrix: [[Double]] = []
-    @State var selectedColor = Int.random(in: 0 ... 2)
-    
+    private let matrixSize = SIZE_OF_BOARD * SIZE_OF_BOARD
+    @State private var matrix: [Double] = []
+    @State private var sortingAlgo = "Insertion Sort"
+    private var sortingAlgos = ["Bubble Sort", "Insertion Sort"]
+    @State private var selectedColor = Int.random(in: 0 ... 2)
+    @State private var isSorting = false
+
     init() {
         _matrix = State(initialValue: generateMatrix())
     }
-    
-    func generateMatrix() -> [[Double]] {
-        let step = 1.0 / Double(SIZE_OF_BOARD * SIZE_OF_BOARD)
-        let flatMatrix = (0 ..< (SIZE_OF_BOARD * SIZE_OF_BOARD)).map { Double($0) * step }.shuffled()
-        return stride(from: 0, to: SIZE_OF_BOARD * SIZE_OF_BOARD, by: SIZE_OF_BOARD).map { offset in
-            Array(flatMatrix[offset ..< (offset + SIZE_OF_BOARD)])
-        }
+
+    func generateMatrix() -> [Double] {
+        let step = 1.0 / Double(matrixSize)
+        return (0 ..< matrixSize).map { Double($0) * step }.shuffled()
     }
-    
-    func rectangleColor(_ value: Double) -> Color {
-        var rgb = [0.0, 0.0, 0.0]
-        rgb[selectedColor] = value
+
+    func rectangleColor(_ i: Int, _ j: Int) -> Color {
+        var rgb = Array(repeating: 0.0, count: 3)
+        rgb[selectedColor] = matrix[(i * SIZE_OF_BOARD) + j]
         return Color(red: rgb[0], green: rgb[1], blue: rgb[2])
     }
-    
-    func sortMatrix(_ i: Int = 0, _ j: Int = 0) {
-        guard i < SIZE_OF_BOARD * SIZE_OF_BOARD else { return }
-        let rowI = i / SIZE_OF_BOARD, colI = i % SIZE_OF_BOARD
-        let rowJ = j / SIZE_OF_BOARD, colJ = j % SIZE_OF_BOARD
-        if matrix[rowI][colI] > matrix[rowJ][colJ] {
-            let temp = matrix[rowI][colI]
-            matrix[rowI][colI] = matrix[rowJ][colJ]
-            matrix[rowJ][colJ] = temp
-            DispatchQueue.main.async {
-                sortMatrix(j + 1 == SIZE_OF_BOARD * SIZE_OF_BOARD ? i + 1 : i, (j + 1) % (SIZE_OF_BOARD * SIZE_OF_BOARD))
+
+    func insertionSort() {
+        var left = 0
+        for i in 1 ..< matrixSize {
+            if matrix[i - 1] > matrix[i] {
+                let temp = matrix[i]
+                matrix[i] = matrix[i - 1]
+                matrix[i - 1] = temp
+                left += 1
+                // add a delay to see updates in progress
+                usleep(UPDATE_DELAY)
+                for j in stride(from: left - 1, to: 0, by: -1) {
+                    if matrix[j - 1] > matrix[j] {
+                        let temp = matrix[j]
+                        matrix[j] = matrix[j - 1]
+                        matrix[j - 1] = temp
+                        // add a delay to see updates in progress
+                        usleep(UPDATE_DELAY)
+                    }
+                }
+            } else {
+                left += 1
             }
-        } else {
-            sortMatrix(j + 1 == SIZE_OF_BOARD * SIZE_OF_BOARD ? i + 1 : i, (j + 1) % (SIZE_OF_BOARD * SIZE_OF_BOARD))
         }
     }
-    
+
+    func bubbleSort() {
+        for i in 0 ..< matrixSize {
+            for j in i + 1 ..< matrixSize {
+                if matrix[i] > matrix[j] {
+                    let temp = matrix[i]
+                    matrix[i] = matrix[j]
+                    matrix[j] = temp
+                    // add a delay to see updates in progress
+                    usleep(UPDATE_DELAY)
+                }
+            }
+        }
+    }
+
+    func sortMatrix() {
+        isSorting = true
+        DispatchQueue.global().async {
+            switch sortingAlgo {
+            case "Insertion Sort": insertionSort()
+            default: bubbleSort()
+            }
+            isSorting = false
+        }
+    }
+
     var body: some View {
         ScrollView {
             HStack {
-                Button(action: { matrix = generateMatrix(); selectedColor = Int.random(in: 0 ... 2) }) {
+                Button(action: {
+                    matrix = generateMatrix()
+                    selectedColor = Int.random(in: 0 ... 2)
+                }) {
                     Text("Reset")
                 }
-                
-                Button(action: { sortMatrix() }) {
+                .disabled(isSorting)
+
+                Picker("", selection: $sortingAlgo) {
+                    ForEach(sortingAlgos, id: \.self) { item in
+                        Text(item)
+                    }
+                }.labelsHidden().disabled(isSorting)
+
+                Button(action: {
+                    sortMatrix()
+                }) {
                     Text("Sort")
                 }
+                .disabled(isSorting)
             }
             VStack(spacing: 0) {
                 ForEach(0 ..< SIZE_OF_BOARD, id: \.self) { row in
@@ -57,7 +106,7 @@ struct SortingVisualizer: View {
                         ForEach(0 ..< SIZE_OF_BOARD, id: \.self) { column in
                             RoundedRectangle(cornerRadius: 0)
                                 .aspectRatio(1, contentMode: .fit)
-                                .foregroundColor(rectangleColor(matrix[row][column]))
+                                .foregroundColor(rectangleColor(row, column))
                         }
                     }
                 }
