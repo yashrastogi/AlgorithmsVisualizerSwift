@@ -53,5 +53,5 @@ extension SortingVisualizer {
 
 #Preview {
   SortingVisualizer()
-    .frame(width: 350, height: 550)
+  //    .frame(width: 350, height: 550)
 }
