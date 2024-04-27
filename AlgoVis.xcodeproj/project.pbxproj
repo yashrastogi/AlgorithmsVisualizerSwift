@@ -11,6 +11,11 @@
 		D32CB9B52BDA52D70031F2CE /* SortingVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32CB9B42BDA52D70031F2CE /* SortingVisualizer.swift */; };
 		D32CB9B72BDA52D70031F2CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32CB9B62BDA52D70031F2CE /* Assets.xcassets */; };
 		D32CB9BB2BDA52D70031F2CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32CB9BA2BDA52D70031F2CE /* Preview Assets.xcassets */; };
+		D34A6C132BDBD85F00DC2BBF /* SortingAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */; };
+		D3C601302BDBDF3100177FA6 /* CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6012F2BDBDF3100177FA6 /* CView.swift */; };
+		D3C601332BDD0A2100177FA6 /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = D3C601322BDD0A2100177FA6 /* SwiftFormat */; };
+		D3C601352BDD0A2100177FA6 /* SwiftFormatConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = D3C601342BDD0A2100177FA6 /* SwiftFormatConfiguration */; };
+		D3C601372BDD0A2100177FA6 /* swift-format in Frameworks */ = {isa = PBXBuildFile; productRef = D3C601362BDD0A2100177FA6 /* swift-format */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,8 @@
 		D32CB9B62BDA52D70031F2CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D32CB9B82BDA52D70031F2CE /* AlgoVis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AlgoVis.entitlements; sourceTree = "<group>"; };
 		D32CB9BA2BDA52D70031F2CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingAlgorithms.swift; sourceTree = "<group>"; };
+		D3C6012F2BDBDF3100177FA6 /* CView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3C601352BDD0A2100177FA6 /* SwiftFormatConfiguration in Frameworks */,
+				D3C601332BDD0A2100177FA6 /* SwiftFormat in Frameworks */,
+				D3C601372BDD0A2100177FA6 /* swift-format in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				D32CB9B22BDA52D70031F2CE /* AlgoVisApp.swift */,
+				D3C6012F2BDBDF3100177FA6 /* CView.swift */,
 				D32CB9B42BDA52D70031F2CE /* SortingVisualizer.swift */,
+				D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */,
 				D32CB9B62BDA52D70031F2CE /* Assets.xcassets */,
 				D32CB9B82BDA52D70031F2CE /* AlgoVis.entitlements */,
 				D32CB9B92BDA52D70031F2CE /* Preview Content */,
@@ -85,6 +97,11 @@
 			dependencies = (
 			);
 			name = AlgoVis;
+			packageProductDependencies = (
+				D3C601322BDD0A2100177FA6 /* SwiftFormat */,
+				D3C601342BDD0A2100177FA6 /* SwiftFormatConfiguration */,
+				D3C601362BDD0A2100177FA6 /* swift-format */,
+			);
 			productName = AlgoVis;
 			productReference = D32CB9AF2BDA52D70031F2CE /* AlgoVis.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +130,9 @@
 				Base,
 			);
 			mainGroup = D32CB9A62BDA52D70031F2CE;
+			packageReferences = (
+				D3C601312BDD0A2100177FA6 /* XCRemoteSwiftPackageReference "swift-format" */,
+			);
 			productRefGroup = D32CB9B02BDA52D70031F2CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3C601302BDBDF3100177FA6 /* CView.swift in Sources */,
 				D32CB9B52BDA52D70031F2CE /* SortingVisualizer.swift in Sources */,
 				D32CB9B32BDA52D70031F2CE /* AlgoVisApp.swift in Sources */,
+				D34A6C132BDBD85F00DC2BBF /* SortingAlgorithms.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +381,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3C601312BDD0A2100177FA6 /* XCRemoteSwiftPackageReference "swift-format" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-format";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 510.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3C601322BDD0A2100177FA6 /* SwiftFormat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3C601312BDD0A2100177FA6 /* XCRemoteSwiftPackageReference "swift-format" */;
+			productName = SwiftFormat;
+		};
+		D3C601342BDD0A2100177FA6 /* SwiftFormatConfiguration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3C601312BDD0A2100177FA6 /* XCRemoteSwiftPackageReference "swift-format" */;
+			productName = SwiftFormatConfiguration;
+		};
+		D3C601362BDD0A2100177FA6 /* swift-format */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3C601312BDD0A2100177FA6 /* XCRemoteSwiftPackageReference "swift-format" */;
+			productName = "swift-format";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D32CB9A72BDA52D70031F2CE /* Project object */;
 }
