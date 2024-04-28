@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NQueensVisualizer: View {
   let SIZE_OF_BOARD = 5
-  let UPDATE_DELAY: UInt32 = 500000
+  let UPDATE_DELAY: UInt32 = 250000
   let selectedColor = Int.random(in: 0...2)
   var defaultMatrix: [[Bool]] {
     return Array(repeating: Array(repeating: false, count: SIZE_OF_BOARD), count: SIZE_OF_BOARD)
@@ -17,6 +17,7 @@ struct NQueensVisualizer: View {
 
   @State var matrix: [[Bool]] = []
   @State var isRunning = false
+  @State var statusUpdates: [String] = []
 
   init() {
     _matrix = State(initialValue: defaultMatrix)
@@ -27,6 +28,7 @@ struct NQueensVisualizer: View {
     DispatchQueue.global().async {
       nQueens()
       isRunning = false
+      statusUpdates.insert("Successfully placed all queens.\n", at: 0)
     }
   }
 
@@ -54,7 +56,7 @@ struct NQueensVisualizer: View {
               ForEach(0..<SIZE_OF_BOARD, id: \.self) { col in
                 RoundedRectangle(cornerRadius: 20)
                   .aspectRatio(1, contentMode: .fit)
-                  .border(.white, width: 4)
+                  .border(.white, width: 2)
                   .foregroundColor(.black)
                   .overlay(
                     matrix[row][col] ? Image(.queenPiece).resizable().scaledToFit() : nil
@@ -64,6 +66,12 @@ struct NQueensVisualizer: View {
           }
         }
         .cornerRadius(8)
+        VStack {
+          ForEach(statusUpdates, id: \.self) { item in
+            Text(item).padding(-15)
+          }
+        }
+        .padding()
       }
       .padding()
       .navigationTitle("n-Queens Algorithm")
