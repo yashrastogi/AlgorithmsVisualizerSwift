@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct SortingVisualizer: View {
-  let SIZE_OF_BOARD = 25
-  let UPDATE_DELAY: UInt32 = 500
+  let SIZE_OF_BOARD = 10
+  let UPDATE_DELAY: UInt32 = 9000
   var matrixSize: Int {
     return SIZE_OF_BOARD * SIZE_OF_BOARD
   }
@@ -98,8 +98,10 @@ struct SpaceTimeComplexityTable: View {
           HStack(spacing: 40) {
             Text("Best")
               .frame(maxWidth: .infinity, alignment: .center)
+              .font(.system(size: 11))
             Text("Worst")
               .frame(maxWidth: .infinity, alignment: .center)
+              .font(.system(size: 11))
           }
         }
         Text("Space Complexity")

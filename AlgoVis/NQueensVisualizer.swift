@@ -28,7 +28,7 @@ struct NQueensVisualizer: View {
     DispatchQueue.global().async {
       nQueens()
       isRunning = false
-      statusUpdates.insert("Successfully placed all queens.\n", at: 0)
+      statusUpdates.insert("Successfully placed all queens.", at: 0)
     }
   }
 
@@ -38,6 +38,7 @@ struct NQueensVisualizer: View {
         HStack {
           Button(action: {
             matrix = defaultMatrix
+            statusUpdates = []
           }) {
             Text("Reset")
           }
@@ -68,7 +69,7 @@ struct NQueensVisualizer: View {
         .cornerRadius(8)
         VStack {
           ForEach(statusUpdates, id: \.self) { item in
-            Text(item).padding(-15)
+            Text(item).padding(0)
           }
         }
         .padding()

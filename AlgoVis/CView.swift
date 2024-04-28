@@ -37,7 +37,6 @@ struct ContentView: View {
     #if os(macOS)
       .frame(minWidth: 350, minHeight: 750)
     #endif
-    .padding()
   }
 }
 

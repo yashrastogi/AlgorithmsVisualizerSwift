@@ -12,17 +12,17 @@ extension NQueensVisualizer {
   func nQueens(_ row: Int = 0) {
     guard row < SIZE_OF_BOARD else { return }
     for col in 0..<SIZE_OF_BOARD {
-      statusUpdates.insert("Trying row \(row) and col \(col): ", at: 0)
+      statusUpdates.insert("Trying row \(row + 1) and col \(col + 1): ", at: 0)
       if !isClashing(row, col) {
-        statusUpdates[0] += "Successful\n"
         matrix[row][col] = true
         usleep(UPDATE_DELAY)
+        statusUpdates[0] += "Successful"
         nQueens(row + 1)
         break
       } else {
-        statusUpdates[0] += "Failed\n"
         matrix[row][col] = true
         usleep(UPDATE_DELAY)
+        statusUpdates[0] += "Failed"
         matrix[row][col] = false
       }
     }
