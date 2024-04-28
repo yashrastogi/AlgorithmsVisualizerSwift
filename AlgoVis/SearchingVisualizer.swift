@@ -1,5 +1,5 @@
 //
-//  PathfindingVisualizer.swift
+//  SearchingVisualizer.swift
 //  AlgoVis
 //
 //  Created by Yash on 27/04/24.
@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct PathfindingVisualizer: View {
+struct SearchingVisualizer: View {
   var body: some View {
     NavigationStack {
       ScrollView {
         Text( /*@START_MENU_TOKEN@*/"Hello, World!" /*@END_MENU_TOKEN@*/)
       }
       .padding()
-      .navigationTitle("Pathfinding Algorithms")
+      .navigationTitle("Searching Algorithms")
     }
   }
 }
 
 #Preview {
-  PathfindingVisualizer()
+  SearchingVisualizer()
 }

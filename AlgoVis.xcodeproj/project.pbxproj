@@ -14,6 +14,10 @@
 		D34A6C132BDBD85F00DC2BBF /* SortingAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */; };
 		D3C601302BDBDF3100177FA6 /* CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6012F2BDBDF3100177FA6 /* CView.swift */; };
 		D3C6013A2BDD17D800177FA6 /* PathfindingVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C601392BDD17D800177FA6 /* PathfindingVisualizer.swift */; };
+		D3C6013C2BDD40FA00177FA6 /* NQueensVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6013B2BDD40FA00177FA6 /* NQueensVisualizer.swift */; };
+		D3C6013E2BDD414A00177FA6 /* SearchingVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6013D2BDD414A00177FA6 /* SearchingVisualizer.swift */; };
+		D3C601402BDD61E400177FA6 /* nQueensAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6013F2BDD61E400177FA6 /* nQueensAlgorithm.swift */; };
+		D3C601432BDDF93A00177FA6 /* swift-format in Frameworks */ = {isa = PBXBuildFile; productRef = D3C601422BDDF93A00177FA6 /* swift-format */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,9 @@
 		D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingAlgorithms.swift; sourceTree = "<group>"; };
 		D3C6012F2BDBDF3100177FA6 /* CView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CView.swift; sourceTree = "<group>"; };
 		D3C601392BDD17D800177FA6 /* PathfindingVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathfindingVisualizer.swift; sourceTree = "<group>"; };
+		D3C6013B2BDD40FA00177FA6 /* NQueensVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NQueensVisualizer.swift; sourceTree = "<group>"; };
+		D3C6013D2BDD414A00177FA6 /* SearchingVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingVisualizer.swift; sourceTree = "<group>"; };
+		D3C6013F2BDD61E400177FA6 /* nQueensAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nQueensAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3C601432BDDF93A00177FA6 /* swift-format in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,10 +70,12 @@
 				D32CB9B22BDA52D70031F2CE /* AlgoVisApp.swift */,
 				D3C6012F2BDBDF3100177FA6 /* CView.swift */,
 				D32CB9B42BDA52D70031F2CE /* SortingVisualizer.swift */,
+				D3C6013B2BDD40FA00177FA6 /* NQueensVisualizer.swift */,
+				D3C601392BDD17D800177FA6 /* PathfindingVisualizer.swift */,
+				D3C6013D2BDD414A00177FA6 /* SearchingVisualizer.swift */,
 				D32CB9B62BDA52D70031F2CE /* Assets.xcassets */,
 				D32CB9B82BDA52D70031F2CE /* AlgoVis.entitlements */,
 				D32CB9B92BDA52D70031F2CE /* Preview Content */,
-				D3C601392BDD17D800177FA6 /* PathfindingVisualizer.swift */,
 			);
 			path = AlgoVis;
 			sourceTree = "<group>";
@@ -82,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */,
+				D3C6013F2BDD61E400177FA6 /* nQueensAlgorithm.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -103,6 +114,7 @@
 			);
 			name = AlgoVis;
 			packageProductDependencies = (
+				D3C601422BDDF93A00177FA6 /* swift-format */,
 			);
 			productName = AlgoVis;
 			productReference = D32CB9AF2BDA52D70031F2CE /* AlgoVis.app */;
@@ -133,6 +145,7 @@
 			);
 			mainGroup = D32CB9A62BDA52D70031F2CE;
 			packageReferences = (
+				D3C601412BDDF93A00177FA6 /* XCRemoteSwiftPackageReference "swift-format" */,
 			);
 			productRefGroup = D32CB9B02BDA52D70031F2CE /* Products */;
 			projectDirPath = "";
@@ -161,10 +174,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3C6013A2BDD17D800177FA6 /* PathfindingVisualizer.swift in Sources */,
+				D3C6013C2BDD40FA00177FA6 /* NQueensVisualizer.swift in Sources */,
 				D3C601302BDBDF3100177FA6 /* CView.swift in Sources */,
 				D32CB9B52BDA52D70031F2CE /* SortingVisualizer.swift in Sources */,
 				D32CB9B32BDA52D70031F2CE /* AlgoVisApp.swift in Sources */,
+				D3C6013E2BDD414A00177FA6 /* SearchingVisualizer.swift in Sources */,
 				D34A6C132BDBD85F00DC2BBF /* SortingAlgorithms.swift in Sources */,
+				D3C601402BDD61E400177FA6 /* nQueensAlgorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +399,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3C601412BDDF93A00177FA6 /* XCRemoteSwiftPackageReference "swift-format" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-format";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 510.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3C601422BDDF93A00177FA6 /* swift-format */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3C601412BDDF93A00177FA6 /* XCRemoteSwiftPackageReference "swift-format" */;
+			productName = "swift-format";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D32CB9A72BDA52D70031F2CE /* Project object */;
 }
