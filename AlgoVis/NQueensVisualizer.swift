@@ -67,13 +67,10 @@ struct NQueensVisualizer: View {
           }
         }
         .cornerRadius(8)
-        VStack {
-          ForEach(statusUpdates, id: \.self) { item in
-            Text(item).padding(0)
-          }
-        }
-        .padding()
+        .frame(maxHeight: 700)
+        Text(statusUpdates.joined(separator: "\n"))
       }
+      .scrollIndicators(ScrollIndicatorVisibility.hidden)
       .padding()
       .navigationTitle("n-Queens Algorithm")
     }

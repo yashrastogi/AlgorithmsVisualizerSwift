@@ -12,6 +12,7 @@
 		D32CB9B72BDA52D70031F2CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32CB9B62BDA52D70031F2CE /* Assets.xcassets */; };
 		D32CB9BB2BDA52D70031F2CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32CB9BA2BDA52D70031F2CE /* Preview Assets.xcassets */; };
 		D34A6C132BDBD85F00DC2BBF /* SortingAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */; };
+		D3B93FEE2BDE74B5004EC119 /* SearchingAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B93FED2BDE74B5004EC119 /* SearchingAlgorithms.swift */; };
 		D3C601302BDBDF3100177FA6 /* CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6012F2BDBDF3100177FA6 /* CView.swift */; };
 		D3C6013A2BDD17D800177FA6 /* PathfindingVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C601392BDD17D800177FA6 /* PathfindingVisualizer.swift */; };
 		D3C6013C2BDD40FA00177FA6 /* NQueensVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6013B2BDD40FA00177FA6 /* NQueensVisualizer.swift */; };
@@ -28,6 +29,7 @@
 		D32CB9B82BDA52D70031F2CE /* AlgoVis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AlgoVis.entitlements; sourceTree = "<group>"; };
 		D32CB9BA2BDA52D70031F2CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingAlgorithms.swift; sourceTree = "<group>"; };
+		D3B93FED2BDE74B5004EC119 /* SearchingAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingAlgorithms.swift; sourceTree = "<group>"; };
 		D3C6012F2BDBDF3100177FA6 /* CView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CView.swift; sourceTree = "<group>"; };
 		D3C601392BDD17D800177FA6 /* PathfindingVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathfindingVisualizer.swift; sourceTree = "<group>"; };
 		D3C6013B2BDD40FA00177FA6 /* NQueensVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NQueensVisualizer.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */,
 				D3C6013F2BDD61E400177FA6 /* nQueensAlgorithm.swift */,
+				D3B93FED2BDE74B5004EC119 /* SearchingAlgorithms.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				D3C6013A2BDD17D800177FA6 /* PathfindingVisualizer.swift in Sources */,
 				D3C6013C2BDD40FA00177FA6 /* NQueensVisualizer.swift in Sources */,
+				D3B93FEE2BDE74B5004EC119 /* SearchingAlgorithms.swift in Sources */,
 				D3C601302BDBDF3100177FA6 /* CView.swift in Sources */,
 				D32CB9B52BDA52D70031F2CE /* SortingVisualizer.swift in Sources */,
 				D32CB9B32BDA52D70031F2CE /* AlgoVisApp.swift in Sources */,

@@ -62,7 +62,7 @@ struct SortingVisualizer: View {
           Button(action: {
             sortMatrix()
           }) {
-            Text("Sort  ")
+            Text("Sort")
           }
           .disabled(isSorting)
         }
@@ -78,6 +78,7 @@ struct SortingVisualizer: View {
           }
         }
         .cornerRadius(8)
+        .frame(maxHeight: 700)
         SpaceTimeComplexityTable()
       }
       .padding()

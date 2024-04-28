@@ -11,6 +11,11 @@ struct ContentView: View {
   var body: some View {
     NavigationStack {
       VStack(spacing: 30) {
+        NavigationLink(destination: SearchingVisualizer()) {
+          Text("Searching Algorithms")
+        }
+        .font(.title)
+        .buttonStyle(.borderedProminent)
         NavigationLink(destination: SortingVisualizer()) {
           Text("Sorting Algorithms")
         }
@@ -21,16 +26,11 @@ struct ContentView: View {
         }
         .font(.title)
         .buttonStyle(.borderedProminent)
-        NavigationLink(destination: PathfindingVisualizer()) {
-          Text("Pathfinding Algorithms")
-        }
-        .font(.title)
-        .buttonStyle(.borderedProminent)
-        NavigationLink(destination: SearchingVisualizer()) {
-          Text("Searching Algorithms")
-        }
-        .font(.title)
-        .buttonStyle(.borderedProminent)
+        //        NavigationLink(destination: PathfindingVisualizer()) {
+        //          Text("Pathfinding Algorithms")
+        //        }
+        //        .font(.title)
+        //        .buttonStyle(.borderedProminent)
       }
       .navigationTitle("Algorithm Visualizer")
     }
