@@ -26,9 +26,9 @@ extension SearchingVisualizer {
   }
 
   func binarySearch(_ searchNum: Int) {
-    matrix.sort()
     highlightCell.1 = 0
-    sleep(1)
+    sleep(2)
+    matrix.sort()
     var lo = 0
     var hi = ARR_SIZE - 1
     while lo <= hi {

@@ -23,7 +23,7 @@ struct SearchingVisualizer: View {
   init() {
     _matrix = State(initialValue: generateMatrix())
     #if os(macOS)
-      let screenWidth = NSScreen.main?.visibleFrame.width ?? 0
+    let screenWidth = (NSScreen.main?.visibleFrame.width ?? 0) / 3
     #else
       let screenWidth = UIScreen.main.bounds.width
     #endif
@@ -97,9 +97,20 @@ struct SearchingVisualizer: View {
           }) {
             Text("Search")
           }
-          //          .alert("Array will be sorted first for binary search", isPresented: $showingAlert) {
-          //            Button("OK", role: .cancel) {}
-          //          }
+          .alert("Array will be sorted first for binary search", isPresented: $showingAlert, actions: {}, message: {
+            Text("Dismissing alert in 2 seconds")
+              .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                  showingAlert = false
+                }
+              }
+              .onChange(of: showingAlert) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                  showingAlert = false
+                }
+              }
+          }
+          )
           .disabled(isSearching)
         }
 
