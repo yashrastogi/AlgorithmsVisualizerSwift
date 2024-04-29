@@ -10,15 +10,24 @@ import SwiftUI
 
 struct SearchingVisualizer: View {
   let ARR_SIZE = 48
-  let ROW_SIZE = 12
+  let UPDATE_DELAY: UInt32 = 250000
+  var ROW_SIZE: Int = 5
   let searchingAlgos = ["Linear Search", "Binary Search"]
   @State var searchingAlgo = "Linear Search"
   @State var matrix: [Int] = []
   @State var searchNum: String = ""
   @State var isSearching = false
+  @State var highlightCell: (Set<Int>, Int) = ([0], 0)  // ([indices], color)
+  @State var showingAlert = false
 
   init() {
     _matrix = State(initialValue: generateMatrix())
+    #if os(macOS)
+      let screenWidth = NSScreen.main?.visibleFrame.width ?? 0
+    #else
+      let screenWidth = UIScreen.main.bounds.width
+    #endif
+    ROW_SIZE = Int(screenWidth) / 50
   }
 
   func generateMatrix() -> [Int] {
@@ -37,12 +46,15 @@ struct SearchingVisualizer: View {
 
   func searchMatrix(_ searchNum: Int) {
     isSearching = true
+    highlightCell.0 = [0]
     DispatchQueue.global().async {
       switch searchingAlgo {
-      case searchingAlgos[1]: binarySearch(searchNum)
-      default: linearSearch(searchNum)
+      case searchingAlgos[1]:
+        showingAlert = true
+        binarySearch(searchNum)
+      default:
+        linearSearch(searchNum)
       }
-
       isSearching = false
     }
   }
@@ -53,6 +65,7 @@ struct SearchingVisualizer: View {
         HStack {
           Button(action: {
             matrix = generateMatrix()
+            highlightCell = ([0], 0)
           }) {
             Text("Reset")
           }
@@ -64,12 +77,14 @@ struct SearchingVisualizer: View {
             }
           }
           .labelsHidden().disabled(isSearching)
+        }
 
+        HStack {
           TextField("Search number", text: $searchNum)
             .frame(width: 150)
-            .keyboardType(.numberPad)
             .textFieldStyle(.roundedBorder)
-            .border( /*@START_MENU_TOKEN@*/Color.black /*@END_MENU_TOKEN@*/.opacity(0.1))
+            .border(Color.black.opacity(0.1))
+            // .keyboardType(.numberPad)
             .onReceive(Just(searchNum)) { newValue in
               let filtered = newValue.filter { "0123456789".contains($0) }
               if filtered != newValue { searchNum = filtered }
@@ -82,19 +97,30 @@ struct SearchingVisualizer: View {
           }) {
             Text("Search")
           }
+          //          .alert("Array will be sorted first for binary search", isPresented: $showingAlert) {
+          //            Button("OK", role: .cancel) {}
+          //          }
           .disabled(isSearching)
         }
+
         VStack(spacing: 0) {
           ForEach(0..<((ARR_SIZE / ROW_SIZE) + (ARR_SIZE % ROW_SIZE == 0 ? 0 : 1)), id: \.self) {
             row in
             HStack(spacing: 0) {
               ForEach(0..<ROW_SIZE, id: \.self) { column in
+                let idx = row * ROW_SIZE + column
                 RoundedRectangle(cornerRadius: 0)
                   .aspectRatio(1, contentMode: .fit)
-                  .foregroundColor(row * ROW_SIZE + column < ARR_SIZE ? .black : .white)
                   .overlay(
-                    row * ROW_SIZE + column < ARR_SIZE
-                      ? Text("\(matrix[row * ROW_SIZE + column])").colorInvert() : nil
+                    idx < ARR_SIZE || highlightCell.0.contains(idx)
+                      ? Text("\(matrix[idx])").foregroundColor(.white) : nil
+                  )
+                  .foregroundColor(
+                    (idx < ARR_SIZE
+                      ? (highlightCell.0.contains(idx)
+                        ? (highlightCell.1 == 0 ? .red : .green)
+                        : .black)
+                      : .white)
                   )
               }
             }
