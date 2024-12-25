@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct PathfindingVisualizer: View {
-  var body: some View {
-    NavigationStack {
-      ScrollView {
-        Text( /*@START_MENU_TOKEN@*/"Hello, World!" /*@END_MENU_TOKEN@*/)
-      }
-      .padding()
-      .navigationTitle("Pathfinding Algorithms")
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                Text( /*@START_MENU_TOKEN@*/"Hello, World!" /*@END_MENU_TOKEN@*/)
+            }
+            .padding()
+            .navigationTitle("Pathfinding Algorithms")
+        }
     }
-  }
 }
 
 #Preview {
-  PathfindingVisualizer()
+    PathfindingVisualizer()
 }

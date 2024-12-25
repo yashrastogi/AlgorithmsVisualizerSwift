@@ -8,38 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
-  var body: some View {
-    NavigationStack {
-      VStack(spacing: 30) {
-        NavigationLink(destination: SearchingVisualizer()) {
-          Text("Searching Algorithms")
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 30) {
+                NavigationLink(destination: SearchingVisualizer()) {
+                    Text("Searching Algorithms")
+                }
+                .font(.title)
+                .buttonStyle(.borderedProminent)
+                NavigationLink(destination: SortingVisualizer()) {
+                    Text("Sorting Algorithms")
+                }
+                .font(.title)
+                .buttonStyle(.borderedProminent)
+                NavigationLink(destination: NQueensVisualizer()) {
+                    Text("n-Queens Algorithm")
+                }
+                .font(.title)
+                .buttonStyle(.borderedProminent)
+                NavigationLink(destination: SudokuSolver()) {
+                    Text("Sudoku Solver")
+                }
+                .font(.title)
+                .buttonStyle(.borderedProminent)
+            }
+            .navigationTitle("Algorithm Visualizer")
         }
-        .font(.title)
-        .buttonStyle(.borderedProminent)
-        NavigationLink(destination: SortingVisualizer()) {
-          Text("Sorting Algorithms")
-        }
-        .font(.title)
-        .buttonStyle(.borderedProminent)
-        NavigationLink(destination: NQueensVisualizer()) {
-          Text("n-Queens Algorithm")
-        }
-        .font(.title)
-        .buttonStyle(.borderedProminent)
-        //        NavigationLink(destination: PathfindingVisualizer()) {
-        //          Text("Pathfinding Algorithms")
-        //        }
-        //        .font(.title)
-        //        .buttonStyle(.borderedProminent)
-      }
-      .navigationTitle("Algorithm Visualizer")
+        #if os(macOS)
+        .frame(minWidth: 350, minHeight: 750)
+        #endif
     }
-    #if os(macOS)
-      .frame(minWidth: 350, minHeight: 750)
-    #endif
-  }
 }
 
 #Preview {
-  ContentView()
+    ContentView()
 }
