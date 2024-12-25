@@ -19,6 +19,8 @@
 		D3C6013E2BDD414A00177FA6 /* SearchingVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6013D2BDD414A00177FA6 /* SearchingVisualizer.swift */; };
 		D3C601402BDD61E400177FA6 /* nQueensAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6013F2BDD61E400177FA6 /* nQueensAlgorithm.swift */; };
 		D3C601432BDDF93A00177FA6 /* swift-format in Frameworks */ = {isa = PBXBuildFile; productRef = D3C601422BDDF93A00177FA6 /* swift-format */; };
+		D3EF39E62D1ABD4900F98856 /* SudokuSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF39E52D1ABD4900F98856 /* SudokuSolver.swift */; };
+		D3EF39E92D1BCE1A00F98856 /* SudokuAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF39E82D1BCE1A00F98856 /* SudokuAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		D3C6013B2BDD40FA00177FA6 /* NQueensVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NQueensVisualizer.swift; sourceTree = "<group>"; };
 		D3C6013D2BDD414A00177FA6 /* SearchingVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingVisualizer.swift; sourceTree = "<group>"; };
 		D3C6013F2BDD61E400177FA6 /* nQueensAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nQueensAlgorithm.swift; sourceTree = "<group>"; };
+		D3EF39E52D1ABD4900F98856 /* SudokuSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuSolver.swift; sourceTree = "<group>"; };
+		D3EF39E82D1BCE1A00F98856 /* SudokuAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 				D3C6013B2BDD40FA00177FA6 /* NQueensVisualizer.swift */,
 				D3C601392BDD17D800177FA6 /* PathfindingVisualizer.swift */,
 				D3C6013D2BDD414A00177FA6 /* SearchingVisualizer.swift */,
+				D3EF39E52D1ABD4900F98856 /* SudokuSolver.swift */,
 				D32CB9B62BDA52D70031F2CE /* Assets.xcassets */,
 				D32CB9B82BDA52D70031F2CE /* AlgoVis.entitlements */,
 				D32CB9B92BDA52D70031F2CE /* Preview Content */,
@@ -96,6 +101,7 @@
 				D34A6C122BDBD85F00DC2BBF /* SortingAlgorithms.swift */,
 				D3C6013F2BDD61E400177FA6 /* nQueensAlgorithm.swift */,
 				D3B93FED2BDE74B5004EC119 /* SearchingAlgorithms.swift */,
+				D3EF39E82D1BCE1A00F98856 /* SudokuAlgorithm.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -131,7 +137,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					D32CB9AE2BDA52D70031F2CE = {
 						CreatedOnToolsVersion = 15.0;
@@ -181,9 +187,11 @@
 				D3B93FEE2BDE74B5004EC119 /* SearchingAlgorithms.swift in Sources */,
 				D3C601302BDBDF3100177FA6 /* CView.swift in Sources */,
 				D32CB9B52BDA52D70031F2CE /* SortingVisualizer.swift in Sources */,
+				D3EF39E62D1ABD4900F98856 /* SudokuSolver.swift in Sources */,
 				D32CB9B32BDA52D70031F2CE /* AlgoVisApp.swift in Sources */,
 				D3C6013E2BDD414A00177FA6 /* SearchingVisualizer.swift in Sources */,
 				D34A6C132BDBD85F00DC2BBF /* SortingAlgorithms.swift in Sources */,
+				D3EF39E92D1BCE1A00F98856 /* SudokuAlgorithm.swift in Sources */,
 				D3C601402BDD61E400177FA6 /* nQueensAlgorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +233,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -286,6 +295,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -313,6 +323,7 @@
 				CODE_SIGN_ENTITLEMENTS = AlgoVis/AlgoVis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AlgoVis/Preview Content\"";
 				DEVELOPMENT_TEAM = 428G83USJV;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -351,6 +362,7 @@
 				CODE_SIGN_ENTITLEMENTS = AlgoVis/AlgoVis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AlgoVis/Preview Content\"";
 				DEVELOPMENT_TEAM = 428G83USJV;
 				ENABLE_HARDENED_RUNTIME = YES;
